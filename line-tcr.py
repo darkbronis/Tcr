@@ -16,6 +16,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 helpMessage =""" Gynoid V.1.0
+Created By : Rakha
 [Id︎]
 [Mid]
 [Me︎]
@@ -429,47 +430,29 @@ def bot(op):
                    if msg.contentMetadata["mid"] in wait["commentBlack"]:
                         del wait["commentBlack"][msg.contentMetadata["mid"]]
                         cl.sendText(msg.to,"deleted")
-                        ki.sendText(msg.to,"deleted")
-                        kk.sendText(msg.to,"deleted")
-                        kc.sendText(msg.to,"deleted")
                         wait["dblack"] = False
 
                    else:
                         wait["dblack"] = False
                         cl.sendText(msg.to,"It is not in the black list")
-                        ki.sendText(msg.to,"It is not in the black list")
-                        kk.sendText(msg.to,"It is not in the black list")
-                        kc.sendText(msg.to,"It is not in the black list")
                elif wait["wblacklist"] == True:
                    if msg.contentMetadata["mid"] in wait["blacklist"]:
                         cl.sendText(msg.to,"already")
-                        ki.sendText(msg.to,"already")
-                        kk.sendText(msg.to,"already")
-                        kc.sendText(msg.to,"already")
                         wait["wblacklist"] = False
                    else:
                         wait["blacklist"][msg.contentMetadata["mid"]] = True
                         wait["wblacklist"] = False
-                        cl.sendText(msg.to,"aded")
-                        ki.sendText(msg.to,"aded")
-                        kk.sendText(msg.to,"aded")
-                        kc.sendText(msg.to,"aded")
+                        cl.sendText(msg.to,"added")
 
                elif wait["dblacklist"] == True:
                    if msg.contentMetadata["mid"] in wait["blacklist"]:
                         del wait["blacklist"][msg.contentMetadata["mid"]]
                         cl.sendText(msg.to,"deleted")
-                        ki.sendText(msg.to,"deleted")
-                        kk.sendText(msg.to,"deleted")
-                        kc.sendText(msg.to,"deleted")
                         wait["dblacklist"] = False
 
                    else:
                         wait["dblacklist"] = False
                         cl.sendText(msg.to,"It is not in the black list")
-                        ki.sendText(msg.to,"It is not in the black list")
-                        kk.sendText(msg.to,"It is not in the black list")
-                        kc.sendText(msg.to,"It is not in the black list")
                elif wait["contact"] == True:
                     msg.contentType = 0
                     cl.sendText(msg.to,msg.contentMetadata["mid"])
@@ -1415,9 +1398,6 @@ def bot(op):
             elif msg.text == "$set":
                 if msg.from_ in admin:
                         cl.sendText(msg.to, "Check sider")
-                        ki.sendText(msg.to, "Check sider")
-                        kk.sendText(msg.to, "Check sider")
-                        kc.sendText(msg.to, "Check sider")
                         try:
                             del wait2['readPoint'][msg.to]
                             del wait2['readMember'][msg.to]
@@ -1595,8 +1575,6 @@ def bot(op):
                                 targets.append(g.mid)
                         if targets == []:
                             ki.sendText(msg.to,"Not found.")
-                            kk.sendText(msg.to,"Not found.")
-                            kc.sendText(msg.to,"Not found.")
                         else:
                             for target in targets:
                                 try:
@@ -1606,8 +1584,6 @@ def bot(op):
                                     print (msg.to,[g.mid])
                                 except:
                                     ki.sendText(msg.to,"Group cleanse")
-                                    kk.sendText(msg.to,"Group cleanse")
-                                    kc.sendText(msg.to,"Group cleanse")
             elif "Nk " in msg.text:
                   if msg.from_ in admin:
                        nk0 = msg.text.replace("Nk ","")
@@ -1631,7 +1607,7 @@ def bot(op):
                                     kicker.kickoutFromGroup(msg.to,[target])
                                     print (msg.to,[g.mid])
                                 except:
-                                    ki.sendText(msg.to,"Succes")
+                                    ki.sendText(msg.to,"Success")
                                     kk.sendText(msg.to,"Bye Kicker")
             elif "Blacklist @ " in msg.text:
                 if msg.from_ in admin:
@@ -1650,7 +1626,7 @@ def bot(op):
                                         wait["blacklist"][target] = True
                                         f=codecs.open('st2__b.json','w','utf-8')
                                         json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                                        k3.sendText(msg.to,"Succes")
+                                        k3.sendText(msg.to,"Success")
                                     except:
                                         ki.sendText(msg.to,"error")
             elif "Ban @" in msg.text:
@@ -1668,18 +1644,13 @@ def bot(op):
                                 targets.append(g.mid)
                         if targets == []:
                             ki.sendText(msg.to,"Not found")
-                            kk.sendText(msg.to,"Not found")
-                            kc.sendText(msg.to,"Not found")
                         else:
                             for target in targets:
                                 try:
                                     wait["blacklist"][target] = True
                                     f=codecs.open('st2__b.json','w','utf-8')
                                     json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                                    cl.sendText(msg.to,"Succes")
-                                    ki.sendText(msg.to,"Succes")
-                                    kk.sendText(msg.to,"Succes")
-                                    kc.sendText(msg.to,"Succes")
+                                    cl.sendText(msg.to,"Success")
                                 except:
                                     ki.sendText(msg.to,"Error")
                                     kk.sendText(msg.to,"Error")
@@ -1708,19 +1679,12 @@ def bot(op):
                                     f=codecs.open('st2__b.json','w','utf-8')
                                     json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                                     cl.sendText(msg.to,"Succes")
-                                    ki.sendText(msg.to,"Succes")
-                                    kk.sendText(msg.to,"Succes")
-                                    kc.sendText(msg.to,"Succes")
                                 except:
-                                    ki.sendText(msg.to,"Succes")
-                                    kk.sendText(msg.to,"Succes")
-                                    kc.sendText(msg.to,"Succes")
+                                    ki.sendText(msg.to,"Success")
 #-----------------------------------------------
             elif msg.text in ["Test"]:
                 if msg.from_ in admin:
                     ki.sendText(msg.to,"Ok 􀨁􀄻double thumbs up􏿿")
-                    kk.sendText(msg.to,"Ok 􀨁􀄻double thumbs up􏿿")
-                    kc.sendText(msg.to,"Ok 􀨁􀄻double thumbs up􏿿")
 #-----------------------------------------------
             elif "Bc " in msg.text:
                 if msg.from_ in admin:
@@ -1732,32 +1696,13 @@ def bot(op):
 
             elif msg.text in ["say hi"]:
                 if msg.from_ in admin:
-                    ki.sendText(msg.to,"Hi buddy 􀜁􀅔Har Har􏿿")
-                    kk.sendText(msg.to,"Hi buddy 􀜁􀅔Har Har􏿿")
-                    kc.sendText(msg.to,"Hi buddy 􀜁􀅔Har Har􏿿")
+                    ki.sendText(msg.to,"Hi")
+		
+	    elif msg.text in ["About"]:
+                if msg.from_ in admin:
+                    ki.sendText(msg.to,"Created By : Rakha\n Ig : rakha008\n https://www.instagram.com/rakha008/")
 
-#-----------------------------------------------
-
-            elif msg.text in ["Cv say hinata pekok"]:
-                if msg.from_ in admin:
-                    ki.sendText(msg.to,"Hinata pekok 􀜁􀅔Har Har􏿿")
-                    kk.sendText(msg.to,"Hinata pekok 􀜁􀅔Har Har􏿿")
-                    kc.sendText(msg.to,"Hinata pekok 􀜁􀅔Har Har􏿿")
-            elif msg.text in ["Cv say didik pekok"]:
-                if msg.from_ in admin:
-                    ki.sendText(msg.to,"Didik pekok 􀜁􀅔Har Har􏿿")
-                    kk.sendText(msg.to,"Didik pekok 􀜁􀅔Har Har􏿿")
-                    kc.sendText(msg.to,"Didik pekok 􀜁􀅔Har Har􏿿")
-            elif msg.text in ["Cv say bobo ah","Bobo dulu ah"]:
-                if msg.from_ in admin:
-                    ki.sendText(msg.to,"Have a nice dream Cv 􀜁􀅔Har Har􏿿")
-                    kk.sendText(msg.to,"Have a nice dream Cv 􀜁􀅔Har Har􏿿")
-                    kc.sendText(msg.to,"Have a nice dream Cv 􀜁􀅔Har Har􏿿")
-            elif msg.text in ["Cv say chomel pekok"]:
-                if msg.from_ in admin:
-                    ki.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
-                    kk.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
-                    kc.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
+#-----------------------------------------------          
             elif msg.text in ["#welcome"]:
                 if msg.from_ in admin:
                     ki.sendText(msg.to,"Hai, wc")
@@ -1766,14 +1711,10 @@ def bot(op):
             elif msg.text in ["PING","Ping","ping"]:
                 if msg.from_ in admin:
                     ki.sendText(msg.to,"PONG")
-                    kk.sendText(msg.to,"PUNG")
-                    kc.sendText(msg.to,"PANG")
 #-----------------------------------------------
             elif msg.text in ["Respon","respon"]:
                 if msg.from_ in admin:
-                    ki.sendText(msg.to,"ok")
-                    kk.sendText(msg.to,"ok")
-                    kc.sendText(msg.to,"ok")
+                    ki.sendText(msg.to,"im here, Lord")
 #-----------------------------------------------
 
             elif msg.text in ["Sp","Speed","speed"]:
@@ -1782,32 +1723,20 @@ def bot(op):
                     cl.sendText(msg.to, "Progress...")
                     elapsed_time = time.time() - start
                     cl.sendText(msg.to, "%sseconds" % (elapsed_time))
-                    ki.sendText(msg.to, "%sseconds" % (elapsed_time))
-                    kk.sendText(msg.to, "%sseconds" % (elapsed_time))
-                    kc.sendText(msg.to, "%sseconds" % (elapsed_time))
 
 #------------------------------------------------------------------
             elif msg.text in ["Ban"]:
                 if msg.from_ in admin:
                     wait["wblacklist"] = True
                     cl.sendText(msg.to,"send contact")
-                    ki.sendText(msg.to,"send contact")
-                    kk.sendText(msg.to,"send contact")
-                    kc.sendText(msg.to,"send contact")
             elif msg.text in ["Unban"]:
                 if msg.from_ in admin:
                     wait["dblacklist"] = True
                     cl.sendText(msg.to,"send contact")
-                    ki.sendText(msg.to,"send contact")
-                    kk.sendText(msg.to,"send contact")
-                    kc.sendText(msg.to,"send contact")
             elif msg.text in ["Banlist"]:
                 if msg.from_ in admin:
                     if wait["blacklist"] == {}:
                         cl.sendText(msg.to,"nothing")
-                        ki.sendText(msg.to,"nothing")
-                        kk.sendText(msg.to,"nothing")
-                        kc.sendText(msg.to,"nothing")
                     else:
                         cl.sendText(msg.to,"Blacklist user")
                         mc = ""
