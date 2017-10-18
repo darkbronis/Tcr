@@ -145,7 +145,6 @@ def NOTIFIED_KICKOUT_FROM_GROUP(op):
         print ("\n\nNOTIFIED_KICKOUT_FROM_GROUP\n\n")
         return
 
-tracer.addOpInterrupt(19,NOTIFIED_KICKOUT_FROM_GROUP)
 
 def NOTIFIED_UPDATE_GROUP(op):
     try:
@@ -156,7 +155,6 @@ def NOTIFIED_UPDATE_GROUP(op):
         print ("\n\nNOTIFIED_UPDATE_GROUP\n\n")
         return
 
-tracer.addOpInterrupt(11,NOTIFIED_UPDATE_GROUP)
 
 def NOTIFIED_CANCEL_INVITATION_GROUP(op):
     try:
@@ -168,7 +166,6 @@ def NOTIFIED_CANCEL_INVITATION_GROUP(op):
         print ("\n\nNOTIFIED_CANCEL_INVITATION_GROUP\n\n")
         return
 
-tracer.addOpInterrupt(32,NOTIFIED_CANCEL_INVITATION_GROUP)
 
 def CANCEL_INVITATION_GROUP(op):
     try:
@@ -177,8 +174,6 @@ def CANCEL_INVITATION_GROUP(op):
         print e
         print ("\n\nCANCEL_INVITATION_GROUP\n\n")
         return
-
-tracer.addOpInterrupt(31,CANCEL_INVITATION_GROUP)
 
 
 def bot(op):
