@@ -34,7 +34,7 @@ helpMessage =""" Gynoid V.1.0
 [Jam on/off]
 [Change clock:「name」]
 [Up]
-[Gy join]
+[join]
 
 [*] Command in the groups [*]
 
@@ -62,11 +62,11 @@ helpMessage =""" Gynoid V.1.0
 [Banlist︎]
 [Cek ban]
 [Gy mid]
-[Gy ︎invite:「mid」]
-[Gy ︎rename:「name」]
-[Gy ︎gift]
+[invite:「mid」]
+[rename:「name」]
+[gift]
 [Respo︎n]
-[Bot cancel]
+[cancel]
 [Title:]
 """
 KAC=[cl,ki,kk,kc]
@@ -133,6 +133,51 @@ def NOTIFIED_READ_MESSAGE(op):
             pass
     except:
         pass
+
+def NOTIFIED_KICKOUT_FROM_GROUP(op):
+    try:
+				sendMessage(op.param1, client.getContact(op.param2).displayName + ", Kicker ea? Kick target")
+				client.kickoutFromGroup(op.param1,[op.param2])
+				client.inviteIntoGroup(op.param1,[op.param3])
+    except Exception as e:
+        print e
+        print ("\n\nNOTIFIED_KICKOUT_FROM_GROUP\n\n")
+        return
+
+tracer.addOpInterrupt(19,NOTIFIED_KICKOUT_FROM_GROUP)
+
+def NOTIFIED_UPDATE_GROUP(op):
+    try:
+                sendMessage(op.param1, client.getContact(op.param2).displayName + ", kick target")
+                client.kickoutFromGroup(op.param1,[op.param2])
+    except Exception as e:
+        print e
+        print ("\n\nNOTIFIED_UPDATE_GROUP\n\n")
+        return
+
+tracer.addOpInterrupt(11,NOTIFIED_UPDATE_GROUP)
+
+def NOTIFIED_CANCEL_INVITATION_GROUP(op):
+    try:
+                sendMessage(op.param1, client.getContact(op.param2).displayName + ", Kick target")
+                client.kickoutFromGroup(op.param1,[op.param2])
+                client.inviteIntoGroup(op.param1,[op.param3])
+    except Exception as e:
+        print e
+        print ("\n\nNOTIFIED_CANCEL_INVITATION_GROUP\n\n")
+        return
+
+tracer.addOpInterrupt(32,NOTIFIED_CANCEL_INVITATION_GROUP)
+
+def CANCEL_INVITATION_GROUP(op):
+    try:
+        client.cancelGroupInvitation(op.param1,[op.param3])
+    except Exception as e:
+        print e
+        print ("\n\nCANCEL_INVITATION_GROUP\n\n")
+        return
+
+tracer.addOpInterrupt(31,CANCEL_INVITATION_GROUP)
 
 
 def bot(op):
@@ -1414,10 +1459,7 @@ def bot(op):
 
             elif msg.text == "$set":
                 if msg.from_ in admin:
-                        cl.sendText(msg.to, "Check sider")
-                        ki.sendText(msg.to, "Check sider")
-                        kk.sendText(msg.to, "Check sider")
-                        kc.sendText(msg.to, "Check sider")
+                        cl.sendText(msg.to, "Check sider")                      
                         try:
                             del wait2['readPoint'][msg.to]
                             del wait2['readMember'][msg.to]
@@ -1427,7 +1469,7 @@ def bot(op):
                         wait2['readMember'][msg.to] = ""
                         wait2['ROM'][msg.to] = {}
                         print wait2
-            elif msg.text == "$read":
+            elif msg.text == "read":
                 if msg.from_ in admin:
                         if msg.to in wait2['readPoint']:
                             if wait2["ROM"][msg.to].items() == []:
@@ -1668,18 +1710,14 @@ def bot(op):
                                 targets.append(g.mid)
                         if targets == []:
                             ki.sendText(msg.to,"Not found")
-                            kk.sendText(msg.to,"Not found")
-                            kc.sendText(msg.to,"Not found")
+                            kk.sendText(msg.to,"Not found")                          
                         else:
                             for target in targets:
                                 try:
                                     wait["blacklist"][target] = True
                                     f=codecs.open('st2__b.json','w','utf-8')
                                     json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                                    cl.sendText(msg.to,"Succes")
-                                    ki.sendText(msg.to,"Succes")
-                                    kk.sendText(msg.to,"Succes")
-                                    kc.sendText(msg.to,"Succes")
+                                    cl.sendText(msg.to,"Succes")                                    
                                 except:
                                     ki.sendText(msg.to,"Error")
                                     kk.sendText(msg.to,"Error")
@@ -1707,10 +1745,7 @@ def bot(op):
                                     del wait["blacklist"][target]
                                     f=codecs.open('st2__b.json','w','utf-8')
                                     json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                                    cl.sendText(msg.to,"Succes")
-                                    ki.sendText(msg.to,"Succes")
-                                    kk.sendText(msg.to,"Succes")
-                                    kc.sendText(msg.to,"Succes")
+                                    cl.sendText(msg.to,"Succes")                                    
                                 except:
                                     ki.sendText(msg.to,"Succes")
                                     kk.sendText(msg.to,"Succes")
@@ -1718,24 +1753,17 @@ def bot(op):
 #-----------------------------------------------
             elif msg.text in ["Test"]:
                 if msg.from_ in admin:
-                    ki.sendText(msg.to,"Ok 􀨁􀄻double thumbs up􏿿")
-                    kk.sendText(msg.to,"Ok 􀨁􀄻double thumbs up􏿿")
-                    kc.sendText(msg.to,"Ok 􀨁􀄻double thumbs up􏿿")
+                    ki.sendText(msg.to,"Ok 􀨁􀄻double thumbs up􏿿")                    
 #-----------------------------------------------
             elif "Bc " in msg.text:
                 if msg.from_ in admin:
                                     bctxt = msg.text.replace("Bc ","")
-                                    ki.sendText(msg.to,(bctxt))
-                                    kk.sendText(msg.to,(bctxt))
-                                    kc.sendText(msg.to,(bctxt))
+                                    ki.sendText(msg.to,(bctxt))                                  
 #-----------------------------------------------
 
             elif msg.text in ["say hi"]:
                 if msg.from_ in admin:
-                    ki.sendText(msg.to,"Hi buddy 􀜁􀅔Har Har􏿿")
-                    kk.sendText(msg.to,"Hi buddy 􀜁􀅔Har Har􏿿")
-                    kc.sendText(msg.to,"Hi buddy 􀜁􀅔Har Har􏿿")
-
+                    ki.sendText(msg.to,"Hi :D") 
 #-----------------------------------------------
 
             elif msg.text in ["Cv say hinata pekok"]:
