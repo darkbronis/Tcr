@@ -15,7 +15,8 @@ print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-helpMessage =""" Gynoid V.1.0
+helpMessage =""" Gynoid V.1.0 
+By : Rakha
 [Id︎]
 [Mid]
 [Me︎]
