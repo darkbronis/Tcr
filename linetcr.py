@@ -1624,7 +1624,7 @@ def bot(op):
                         gs = ki.getGroup(msg.to)
                         gs = kk.getGroup(msg.to)
                         gs = kc.getGroup(msg.to)
-                        ki.sendText(msg.to,"Just some casual cleansing ô")
+                        ki.sendText(msg.to,"dont cry noob")
                         kk.sendText(msg.to,"Group cleansed.")
                         kc.sendText(msg.to,"Fuck You All")
                         targets = []
@@ -1633,8 +1633,7 @@ def bot(op):
                                 targets.append(g.mid)
                         if targets == []:
                             ki.sendText(msg.to,"Not found.")
-                            kk.sendText(msg.to,"Not found.")
-                            kc.sendText(msg.to,"Not found.")
+                            
                         else:
                             for target in targets:
                                 try:
@@ -1644,8 +1643,7 @@ def bot(op):
                                     print (msg.to,[g.mid])
                                 except:
                                     ki.sendText(msg.to,"Group cleanse")
-                                    kk.sendText(msg.to,"Group cleanse")
-                                    kc.sendText(msg.to,"Group cleanse")
+                                    
             elif "Nk " in msg.text:
                   if msg.from_ in admin:
                        nk0 = msg.text.replace("Nk ","")
@@ -1716,8 +1714,7 @@ def bot(op):
                                     cl.sendText(msg.to,"Succes")                                    
                                 except:
                                     ki.sendText(msg.to,"Error")
-                                    kk.sendText(msg.to,"Error")
-                                    kc.sendText(msg.to,"Error")
+                                    
             elif "Unban @" in msg.text:
                 if msg.from_ in admin:
                     if msg.toType == 2:
@@ -1733,8 +1730,7 @@ def bot(op):
                                 targets.append(g.mid)
                         if targets == []:
                             ki.sendText(msg.to,"Not found")
-                            kk.sendText(msg.to,"Not found")
-                            kc.sendText(msg.to,"Not found")
+                            
                         else:
                             for target in targets:
                                 try:
@@ -1744,8 +1740,7 @@ def bot(op):
                                     cl.sendText(msg.to,"Succes")                                    
                                 except:
                                     ki.sendText(msg.to,"Succes")
-                                    kk.sendText(msg.to,"Succes")
-                                    kc.sendText(msg.to,"Succes")
+                                    
 #-----------------------------------------------
             elif msg.text in ["Test"]:
                 if msg.from_ in admin:
@@ -1785,19 +1780,17 @@ def bot(op):
             elif msg.text in ["#welcome"]:
                 if msg.from_ in admin:
                     ki.sendText(msg.to,"Hai, wc")
-                    kk.sendText(msg.to,"hai, slamat datang di grup kecil kami")
+                    kk.sendText(msg.to,"slamat datang di grup kecil kami")
 #-----------------------------------------------
             elif msg.text in ["PING","Ping","ping"]:
                 if msg.from_ in admin:
                     ki.sendText(msg.to,"PONG")
-                    kk.sendText(msg.to,"PUNG")
-                    kc.sendText(msg.to,"PANG")
+                    
 #-----------------------------------------------
             elif msg.text in ["Respon","respon"]:
                 if msg.from_ in admin:
                     ki.sendText(msg.to,"ok")
-                    kk.sendText(msg.to,"ok")
-                    kc.sendText(msg.to,"ok")
+                    
 #-----------------------------------------------
 
             elif msg.text in ["Sp","Speed","speed"]:
@@ -1806,41 +1799,27 @@ def bot(op):
                     cl.sendText(msg.to, "Progress...")
                     elapsed_time = time.time() - start
                     cl.sendText(msg.to, "%sseconds" % (elapsed_time))
-                    ki.sendText(msg.to, "%sseconds" % (elapsed_time))
-                    kk.sendText(msg.to, "%sseconds" % (elapsed_time))
-                    kc.sendText(msg.to, "%sseconds" % (elapsed_time))
+                   
 
 #------------------------------------------------------------------
             elif msg.text in ["Ban"]:
                 if msg.from_ in admin:
                     wait["wblacklist"] = True
-                    cl.sendText(msg.to,"send contact")
-                    ki.sendText(msg.to,"send contact")
-                    kk.sendText(msg.to,"send contact")
-                    kc.sendText(msg.to,"send contact")
+                    cl.sendText(msg.to,"send contact")                    
             elif msg.text in ["Unban"]:
                 if msg.from_ in admin:
                     wait["dblacklist"] = True
-                    cl.sendText(msg.to,"send contact")
-                    ki.sendText(msg.to,"send contact")
-                    kk.sendText(msg.to,"send contact")
-                    kc.sendText(msg.to,"send contact")
+                    cl.sendText(msg.to,"send contact")                   
             elif msg.text in ["Banlist"]:
                 if msg.from_ in admin:
                     if wait["blacklist"] == {}:
                         cl.sendText(msg.to,"nothing")
-                        ki.sendText(msg.to,"nothing")
-                        kk.sendText(msg.to,"nothing")
-                        kc.sendText(msg.to,"nothing")
                     else:
                         cl.sendText(msg.to,"Blacklist user")
                         mc = ""
                         for mi_d in wait["blacklist"]:
                             mc += "->" +cl.getContact(mi_d).displayName + "\n"
-                        cl.sendText(msg.to,mc)
-                        ki.sendText(msg.to,mc)
-                        kk.sendText(msg.to,mc)
-                        kc.sendText(msg.to,mc)
+                        cl.sendText(msg.to,mc)                  
             elif msg.text in ["Cek ban"]:
                 if msg.from_ in admin:
                     if msg.toType == 2:
@@ -1863,9 +1842,7 @@ def bot(op):
                             matched_list+=filter(lambda str: str == tag, gMembMids)
                         if matched_list == []:
                             cl.sendText(msg.to,"There was no blacklist user")
-                            ki.sendText(msg.to,"There was no blacklist user")
-                            kk.sendText(msg.to,"There was no blacklist user")
-                            kc.sendText(msg.to,"There was no blacklist user")
+                           
                             return
                         for jj in matched_list:
                             cl.kickoutFromGroup(msg.to,[jj])
@@ -1873,9 +1850,7 @@ def bot(op):
                             kk.kickoutFromGroup(msg.to,[jj])
                             kc.kickoutFromGroup(msg.to,[jj])
                         cl.sendText(msg.to,"Blacklist has been kicked")
-                        ki.sendText(msg.to,"Blacklist has been kicked")
-                        kk.sendText(msg.to,"Blacklist has been kicked")
-                        kc.sendText(msg.to,"Blacklist has been kicked")
+                        
             elif msg.text in ["Clear"]:
                 if msg.from_ in admin:
                     if msg.toType == 2:
