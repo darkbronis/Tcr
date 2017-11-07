@@ -16,7 +16,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 helpMessage =""" Gynoid V.1.0
-Created By : Rakha
+Created By : Dina
 [Id︎]
 [Mid]
 [Me︎]
@@ -77,7 +77,7 @@ Bmid = kk.getProfile().mid
 Cmid = kc.getProfile().mid
 
 Bots=[mid,Amid,Bmid,Cmid]
-admin=["ufdb348d53532a57228f045ecfaa00f8d"]
+admin=["u3da36828456aed83d82b011ca8ded1df"]
 wait = {
     'contact':True,
     'autoJoin':True,
@@ -1653,8 +1653,7 @@ def bot(op):
                                     cl.sendText(msg.to,"Success")
                                 except:
                                     ki.sendText(msg.to,"Error")
-                                    kk.sendText(msg.to,"Error")
-                                    kc.sendText(msg.to,"Error")
+                                   
             elif "Unban @" in msg.text:
                 if msg.from_ in admin:
                     if msg.toType == 2:
@@ -1670,8 +1669,7 @@ def bot(op):
                                 targets.append(g.mid)
                         if targets == []:
                             ki.sendText(msg.to,"Not found")
-                            kk.sendText(msg.to,"Not found")
-                            kc.sendText(msg.to,"Not found")
+                           
                         else:
                             for target in targets:
                                 try:
@@ -1714,7 +1712,7 @@ def bot(op):
 #-----------------------------------------------
             elif msg.text in ["Respon","respon"]:
                 if msg.from_ in admin:
-                    ki.sendText(msg.to,"im here, Lord")
+                    ki.sendText(msg.to,"hadir")
 #-----------------------------------------------
 
             elif msg.text in ["Sp","Speed","speed"]:
@@ -1743,9 +1741,7 @@ def bot(op):
                         for mi_d in wait["blacklist"]:
                             mc += "->" +cl.getContact(mi_d).displayName + "\n"
                         cl.sendText(msg.to,mc)
-                        ki.sendText(msg.to,mc)
-                        kk.sendText(msg.to,mc)
-                        kc.sendText(msg.to,mc)
+                        
             elif msg.text in ["Cek ban"]:
                 if msg.from_ in admin:
                     if msg.toType == 2:
@@ -1768,9 +1764,7 @@ def bot(op):
                             matched_list+=filter(lambda str: str == tag, gMembMids)
                         if matched_list == []:
                             cl.sendText(msg.to,"There was no blacklist user")
-                            ki.sendText(msg.to,"There was no blacklist user")
-                            kk.sendText(msg.to,"There was no blacklist user")
-                            kc.sendText(msg.to,"There was no blacklist user")
+                            
                             return
                         for jj in matched_list:
                             cl.kickoutFromGroup(msg.to,[jj])
@@ -1778,9 +1772,7 @@ def bot(op):
                             kk.kickoutFromGroup(msg.to,[jj])
                             kc.kickoutFromGroup(msg.to,[jj])
                         cl.sendText(msg.to,"Blacklist has been kicked")
-                        ki.sendText(msg.to,"Blacklist has been kicked")
-                        kk.sendText(msg.to,"Blacklist has been kicked")
-                        kc.sendText(msg.to,"Blacklist has been kicked")
+                        
             elif msg.text in ["Clear"]:
                 if msg.from_ in admin:
                     if msg.toType == 2:
