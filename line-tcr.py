@@ -16,7 +16,6 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 helpMessage =""" Gynoid V.1.0
-Created By : Dina
 [Id︎]
 [Mid]
 [Me︎]
@@ -77,7 +76,7 @@ Bmid = kk.getProfile().mid
 Cmid = kc.getProfile().mid
 
 Bots=[mid,Amid,Bmid,Cmid]
-admin=["u3da36828456aed83d82b011ca8ded1df"]
+admin=["ufdb348d53532a57228f045ecfaa00f8d"]
 wait = {
     'contact':True,
     'autoJoin':True,
